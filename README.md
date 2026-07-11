@@ -89,7 +89,7 @@ database.default.port = 3306
 ```
 
 ### 4. Import Database
-1. Buka **phpMyAdmin** atau DBMS favorit Anda (DBeaver, Navicat, dll.).
+1. Buka **phpMyAdmin** atau DBMS Mysql Server lainnya.
 2. Buat database baru bernama `invoice_db`.
 3. Import file `invoice.sql` yang terletak di root direktori project ini ke dalam database `invoice_db`.
 
