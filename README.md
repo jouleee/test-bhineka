@@ -17,6 +17,10 @@ Aplikasi Sistem Informasi Invoice berbasis web ini dirancang khusus untuk mengel
 - **Manajemen Pengguna (Users)**: Pengelolaan akun pengguna yang berwenang mengakses sistem.
 - **Pengaturan Profil Perusahaan (Settings)**: Konfigurasi nama, alamat, nomor telepon, dan email perusahaan untuk kop surat invoice secara dinamis.
 
+## Desain Database
+<img width="1308" height="757" alt="image" src="https://github.com/user-attachments/assets/629ec5cf-a748-4f20-94a6-b7aea4853cbf" />
+
+## Screenshot Program
 ---
 ### 1. Halaman Login
 Halaman masuk bagi pengguna untuk mengakses sistem berdasarkan username dan password.
