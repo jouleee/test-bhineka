@@ -28,7 +28,7 @@ Halaman masuk bagi pengguna untuk mengakses sistem berdasarkan username dan pass
 <img width="1920" height="912" alt="image" src="https://github.com/user-attachments/assets/70e2fea4-74b0-48d4-8c8f-061c27e264c0" />
 
 ### 2. Dashboard Utama
-Menampilkan ringkasan statistik data sistem seperti total invoice, produk, customer, dan user aktif.
+Menampilkan ringkasan statistik data sistem seperti total invoice, produk, dan customer.
 <img width="1920" height="912" alt="image" src="https://github.com/user-attachments/assets/430031ba-53bb-4328-86be-91792af03b2c" />
 
 ### 3. Daftar Invoice
