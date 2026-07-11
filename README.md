@@ -4,7 +4,7 @@ Aplikasi Sistem Informasi Invoice berbasis web ini dirancang khusus untuk mengel
 
 ---
 
-## 🚀 Fitur Utama
+## Fitur Utama
 
 - **Autentikasi Multi-Level**: Login aman untuk berbagai peran/role (seperti *Admin*, *Purchasing*, *Finance*).
 - **Dashboard Interaktif**: Statistik ringkas berupa total invoice terbit, jumlah pelanggan, jumlah produk, dan informasi keuangan penting lainnya.
@@ -17,11 +17,12 @@ Aplikasi Sistem Informasi Invoice berbasis web ini dirancang khusus untuk mengel
 - **Manajemen Pengguna (Users)**: Pengelolaan akun pengguna yang berwenang mengakses sistem.
 - **Pengaturan Profil Perusahaan (Settings)**: Konfigurasi nama, alamat, nomor telepon, dan email perusahaan untuk kop surat invoice secara dinamis.
 
+---
 ## Desain Database
 <img width="1308" height="757" alt="image" src="https://github.com/user-attachments/assets/629ec5cf-a748-4f20-94a6-b7aea4853cbf" />
 
-## Screenshot Program
 ---
+## Screenshot Program
 ### 1. Halaman Login
 Halaman masuk bagi pengguna untuk mengakses sistem berdasarkan username dan password.
 <img width="1920" height="912" alt="image" src="https://github.com/user-attachments/assets/70e2fea4-74b0-48d4-8c8f-061c27e264c0" />
@@ -47,7 +48,7 @@ Halaman master data untuk mengelola entitas pelanggan, produk, dan pengguna sist
 
 ---
 
-## 🛠️ Teknologi yang Digunakan
+## Teknologi yang Digunakan
 
 - **Backend**: PHP >= 8.2
 - **Framework**: CodeIgniter 4.7+
@@ -57,7 +58,7 @@ Halaman master data untuk mengelola entitas pelanggan, produk, dan pengguna sist
 
 ---
 
-## 💻 Langkah Instalasi & Setup
+## Langkah Instalasi & Setup
 
 Ikuti langkah-langkah berikut untuk menjalankan project ini di komputer lokal Anda:
 
