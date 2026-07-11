@@ -20,25 +20,26 @@ Aplikasi Sistem Informasi Invoice berbasis web ini dirancang khusus untuk mengel
 ---
 ### 1. Halaman Login
 Halaman masuk bagi pengguna untuk mengakses sistem berdasarkan username dan password.
-![Halaman Login](public/image/screenshots/login.png)
+<img width="1920" height="912" alt="image" src="https://github.com/user-attachments/assets/70e2fea4-74b0-48d4-8c8f-061c27e264c0" />
 
 ### 2. Dashboard Utama
 Menampilkan ringkasan statistik data sistem seperti total invoice, produk, customer, dan user aktif.
-![Dashboard Utama](public/image/screenshots/dashboard.png)
+<img width="1920" height="912" alt="image" src="https://github.com/user-attachments/assets/430031ba-53bb-4328-86be-91792af03b2c" />
 
 ### 3. Daftar Invoice
 Tabel yang menampilkan semua transaksi invoice beserta status, tanggal, dan aksi (detail, edit, hapus, cetak).
-![Daftar Invoice](public/image/screenshots/invoice_list.png)
+<img width="1920" height="912" alt="image" src="https://github.com/user-attachments/assets/2d6449ff-a1cd-43f8-8547-9cbb2a3bb83e" />
 
 ### 4. Pembuatan & Detail Invoice
 Form pembuatan invoice baru dengan penambahan item secara dinamis serta cetak invoice.
-![Form Pembuatan Invoice](public/image/screenshots/invoice_form.png)
-![Detail & Cetak Invoice](public/image/screenshots/invoice_detail.png)
+<img width="1920" height="912" alt="image" src="https://github.com/user-attachments/assets/badfca34-9e43-41f4-be0b-e85d0c8a8f65" />
+<img width="1920" height="912" alt="image" src="https://github.com/user-attachments/assets/f71179f2-77f8-4c28-a39b-f1430232e20d" />
 
 ### 5. Manajemen Data (Customers, Products, Users)
 Halaman master data untuk mengelola entitas pelanggan, produk, dan pengguna sistem.
-![Manajemen Customer](public/image/screenshots/customers.png)
-![Manajemen Produk](public/image/screenshots/products.png)
+<img width="1920" height="912" alt="image" src="https://github.com/user-attachments/assets/fcaf3323-f1dd-4686-b3e4-d0298ce5d693" />
+<img width="1920" height="912" alt="image" src="https://github.com/user-attachments/assets/30035f18-0ac5-42a6-8814-619ad6dcdaec" />
+
 
 ---
 
