@@ -1,3 +1,4 @@
+<?php /** @var array{id:int|string, code:string, name:string, unit:string, price:int|string} $product */ ?>
 <?= $this->extend('layout/main') ?>
 
 <?= $this->section('title') ?>Edit Produk<?= $this->endSection() ?>

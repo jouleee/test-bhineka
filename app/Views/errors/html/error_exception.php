@@ -2,6 +2,18 @@
 use CodeIgniter\HTTP\Header;
 use CodeIgniter\CodeIgniter;
 
+/** @var string $title */
+/** @var \Throwable $exception */
+/** @var string $file */
+/** @var int $line */
+/** @var array<int, array<string, mixed>> $trace */
+
+$errorTitle = isset($title) ? (string) $title : '';
+$errorException = isset($exception) && $exception instanceof \Throwable ? $exception : new \RuntimeException($errorTitle);
+$errorFile = isset($file) ? (string) $file : '';
+$errorLine = isset($line) ? (int) $line : 0;
+$errorTrace = isset($trace) && is_array($trace) ? $trace : [];
+
 $errorId = uniqid('error', true);
 ?>
 <!doctype html>
@@ -10,7 +22,7 @@ $errorId = uniqid('error', true);
     <meta charset="UTF-8">
     <meta name="robots" content="noindex">
 
-    <title><?= esc($title) ?></title>
+    <title><?= esc($errorTitle) ?></title>
     <style>
         <?= preg_replace('#[\r\n\t ]+#', ' ', file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'debug.css')) ?>
     </style>
@@ -30,10 +42,10 @@ $errorId = uniqid('error', true);
             Environment: <?= ENVIRONMENT ?>
         </div>
         <div class="container">
-            <h1><?= esc($title), esc($exception->getCode() ? ' #' . $exception->getCode() : '') ?></h1>
+            <h1><?= esc($errorTitle), esc($errorException->getCode() ? ' #' . $errorException->getCode() : '') ?></h1>
             <p>
-                <?= nl2br(esc($exception->getMessage())) ?>
-                <a href="https://www.duckduckgo.com/?q=<?= urlencode($title . ' ' . preg_replace('#\'.*\'|".*"#Us', '', $exception->getMessage())) ?>"
+                <?= nl2br(esc($errorException->getMessage())) ?>
+                <a href="https://www.duckduckgo.com/?q=<?= urlencode($errorTitle . ' ' . preg_replace('#\'.*\'|".*"#Us', '', $errorException->getMessage())) ?>"
                    rel="noreferrer" target="_blank">search &rarr;</a>
             </p>
         </div>
@@ -41,18 +53,21 @@ $errorId = uniqid('error', true);
 
     <!-- Source -->
     <div class="container">
-        <p><b><?= esc(clean_path($file)) ?></b> at line <b><?= esc($line) ?></b></p>
+        <?php /** @var string $errorFileDisplay */ ?>
+        <?php $errorFileDisplay = clean_path($errorFile) ?>
+        <?php if (! is_string($errorFileDisplay)) { $errorFileDisplay = (string) $errorFileDisplay; } ?>
+        <p><b><?= is_string($errorFileDisplay) ? $errorFileDisplay : '' ?></b> at line <b><?= is_int($errorLine) ? $errorLine : 0 ?></b></p>
 
-        <?php if (is_file($file)) : ?>
+        <?php if (is_file($errorFile)) : ?>
             <div class="source">
-                <?= static::highlightFile($file, $line, 15); ?>
+                <?= static::highlightFile($errorFile, $errorLine, 15); ?>
             </div>
         <?php endif; ?>
     </div>
 
     <div class="container">
         <?php
-        $last = $exception;
+        $last = $errorException;
 
         while ($prevException = $last->getPrevious()) {
             $last = $prevException;
@@ -65,7 +80,9 @@ $errorId = uniqid('error', true);
     <?= nl2br(esc($prevException->getMessage())) ?>
     <a href="https://www.duckduckgo.com/?q=<?= urlencode($prevException::class . ' ' . preg_replace('#\'.*\'|".*"#Us', '', $prevException->getMessage())) ?>"
        rel="noreferrer" target="_blank">search &rarr;</a>
-    <?= esc(clean_path($prevException->getFile()) . ':' . $prevException->getLine()) ?>
+     <?php /** @var string $prevExceptionFileDisplay */ ?>
+     <?php $prevExceptionFileDisplay = clean_path($prevException->getFile()) . ':' . $prevException->getLine() ?>
+    <?= is_string($prevExceptionFileDisplay) ? $prevExceptionFileDisplay : '' ?>
     </pre>
 
         <?php
@@ -91,7 +108,7 @@ $errorId = uniqid('error', true);
             <div class="content" id="backtrace">
 
                 <ol class="trace">
-                <?php foreach ($trace as $index => $row) : ?>
+                <?php foreach ($errorTrace as $index => $row) : ?>
 
                     <li>
                         <p>
@@ -99,9 +116,13 @@ $errorId = uniqid('error', true);
                             <?php if (isset($row['file']) && is_file($row['file'])) : ?>
                                 <?php
                                 if (isset($row['function']) && in_array($row['function'], ['include', 'include_once', 'require', 'require_once'], true)) {
-                                    echo esc($row['function'] . ' ' . clean_path($row['file']));
+                                    /** @var string $traceFileDisplay */
+                                    $traceFileDisplay = clean_path($row['file']);
+                                    echo $row['function'] . ' ' . (is_string($traceFileDisplay) ? $traceFileDisplay : '');
                                 } else {
-                                    echo esc(clean_path($row['file']) . ' : ' . $row['line']);
+                                    /** @var string $traceFileDisplay */
+                                    $traceFileDisplay = clean_path($row['file']) . ' : ' . $row['line'];
+                                    echo is_string($traceFileDisplay) ? $traceFileDisplay : '';
                                 }
                                 ?>
                             <?php else: ?>
@@ -393,7 +414,9 @@ $errorId = uniqid('error', true);
 
                 <ol>
                 <?php foreach ($files as $file) :?>
-                    <li><?= esc(clean_path($file)) ?></li>
+                    <?php /** @var string $stackFileDisplay */ ?>
+                    <?php $stackFileDisplay = clean_path($file) ?>
+                        <li><?= is_string($stackFileDisplay) ? $stackFileDisplay : '' ?></li>
                 <?php endforeach ?>
                 </ol>
             </div>
